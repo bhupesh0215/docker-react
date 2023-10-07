@@ -1,4 +1,4 @@
-FROM node:alpine as build
+FROM node:alpine as builder
 
 WORKDIR '/app'
 
@@ -14,5 +14,5 @@ FROM nginx
 
 EXPOSE 80
 
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 
